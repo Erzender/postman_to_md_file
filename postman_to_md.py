@@ -22,7 +22,7 @@ def write_info(info):
 def write_items(items):
     to_write = ""
     for elem in items:
-        to_write += "### " + elem["request"]["method"] + " " + elem["name"] + "\n"
+        to_write += "### [" + elem["request"]["method"] + "] " + elem["name"] + "\n"
         to_write += "`" + elem["request"]["url"] + "`\n"
         to_write += "#### Headers\n"
         to_write += "|key|value|\n"
