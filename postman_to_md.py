@@ -37,7 +37,9 @@ def write_items(items):
                 to_write += "|" + node["key"] + "|" + node["value"] + "|\n"
         if elem["response"] != "{}" and len(elem["response"]) > 0:
             to_write += "#### Sample Response\n"
-            to_write += "```json\n" + json.dumps(json.loads(elem["response"][0]["body"]), indent=4) + "```\n"
+            for res in elem["response"]:
+                to_write += res["name"] + "\n"
+                to_write += "```json\n" + json.dumps(json.loads(res["body"]), indent=4) + "\n```\n"
     return to_write
 
 if len(sys.argv) < 3:
