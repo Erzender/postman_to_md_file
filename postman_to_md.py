@@ -28,13 +28,13 @@ def write_items(items):
         to_write += "|key|value|\n"
         to_write += "|---|-----|\n"
         for header in elem["request"]["header"]:
-            to_write += "|" + header["key"] + "|" + header["value"] + "|\n"
+            to_write += "|" + header["key"] + "|`" + header["value"] + "`|\n"
         if ("urlencoded" in elem["request"]["body"]):
             to_write += "#### Body\n"
             to_write += "|key|value|\n"
             to_write += "|---|-----|\n"
             for node in elem["request"]["body"]["urlencoded"]:
-                to_write += "|" + node["key"] + "|" + node["value"] + "|\n"
+                to_write += "|" + node["key"] + "|`" + node["value"] + "`|\n"
         if elem["response"] != "{}" and len(elem["response"]) > 0:
             to_write += "#### Sample Response\n"
             for res in elem["response"]:
