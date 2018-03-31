@@ -15,7 +15,7 @@ def write_info(info):
     to_write = ""
     to_write += "# " + info["name"] + "\n"
     to_write += info["description"] + "\n"
-    to_write += "___________________________________________________________________\n"
+    to_write += "========================================\n"
     to_write += "# Requests\n"
     return to_write
 
@@ -24,9 +24,10 @@ def write_items(items):
     for elem in items:
         to_write += "### [" + elem["request"]["method"] + "] " + elem["name"] + "\n"
         to_write += "`" + elem["request"]["url"] + "`\n"
-        to_write += "#### Headers\n"
-        to_write += "|key|value|\n"
-        to_write += "|---|-----|\n"
+        if len(elem["request"]["header"]) > 0:
+            to_write += "#### Headers\n"
+            to_write += "|key|value|\n"
+            to_write += "|---|-----|\n"
         for header in elem["request"]["header"]:
             to_write += "|" + header["key"] + "|`" + header["value"] + "`|\n"
         if ("urlencoded" in elem["request"]["body"]):
