@@ -15,7 +15,7 @@ def write_info(info):
     to_write = ""
     to_write += "# " + info["name"] + "\n"
     to_write += info["description"] + "\n"
-    to_write += "========================================\n"
+    to_write += "______________________________________\n"
     to_write += "# Requests\n"
     return to_write
 
